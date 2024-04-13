@@ -1,0 +1,84 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!--=============== CSS ===============-->
+   <link rel="stylesheet" href="mini.css">
+
+   <style>
+      /* Ajoutez les styles pour le bouton de connexion cliqué */
+      .login__button:active {
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère */
+      }
+   </style>
+
+   <title>Login form - Bedimcode</title>
+</head>
+<body>
+   <div class="login">
+      <img src="login2.jpg" alt="image" class="login__bg">
+      <form action="" id="login-form" class="login__form">
+         <h1 class="login__title">Login</h1>
+         <div id="error-message" class="login__error"></div>
+         <div class="login__inputs">
+            <div class="login__box">
+               <i class="ri-mail-fill"></i>
+               <input type="email" id="email" placeholder="Email ID" required class="login__input">
+            </div>
+            <div class="login__box">
+               <i class="ri-lock-2-fill"></i>
+               <input type="password" id="password" placeholder="Password" required class="login__input">
+            </div>
+         </div>
+         <button type="submit" class="login__button">Login</button>
+         <div class="login__register">
+            Don't have an account? <a href="inscription.html">Register</a>
+         </div>
+      </form>
+   </div>
+
+   <script>
+      // Récupération des éléments du formulaire et du message d'erreur
+      const loginForm = document.getElementById("login-form");
+      const errorMessage = document.getElementById("error-message");
+
+      // Initialisation des tentatives
+      let attempts = 3;
+
+      // Ajout du gestionnaire d'événements pour la soumission du formulaire
+      loginForm.addEventListener("submit", function(event) {
+         event.preventDefault(); // Empêcher le comportement par défaut du formulaire
+
+         // Récupération des valeurs des champs d'email et de mot de passe
+         const email = document.getElementById("email").value;
+         const password = document.getElementById("password").value;
+
+         // Récupération des données de connexion stockées localement
+         const storedEmail = localStorage.getItem("email");
+         const storedPassword = localStorage.getItem("password");
+
+         // Vérification des informations d'identification
+         if (email === storedEmail && password === storedPassword) {
+            // Redirection si les informations sont correctes
+            window.location.href = "acceuil.html";
+         } else {
+            // Décrémentation des tentatives restantes
+            attempts--;
+
+            if (attempts > 0) {
+               // Affichage du message d'erreur avec le nombre de tentatives restantes
+               errorMessage.innerText = `Identifiant ou mot de passe incorrect. Il vous reste ${attempts} tentatives.`;
+            } else {
+               // Désactivation du formulaire si le nombre de tentatives est épuisé
+               errorMessage.innerText = "Vous ne pouvez plus essayer.";
+               loginForm.querySelector('button[type="submit"]').disabled = true;
+            }
+         }
+      });
+   </script>
+</body>
+</html>
+
+

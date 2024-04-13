@@ -1,0 +1,165 @@
+/* Reset CSS */
+/* Reset CSS */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Body styles */
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f5f9; /* Bleu clair */
+    color: #333;
+    transition: background-color 0.5s ease;
+  }
+  
+  /* Header styles */
+  /* Header styles */
+header {
+    background-color: #2c3e50; /* Vert doux */
+    color: #fff;
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.5s ease;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center;
+    padding-left: 0; /* Réinitialiser la marge intérieure */
+  }
+  
+  nav ul li {
+    margin: 0 10px; /* Ajout d'une marge pour l'espace entre les éléments */
+  }
+  
+  nav ul li:last-child {
+    margin-right: 0;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  
+  nav ul li a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #007bff;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+  }
+  
+  nav ul li a:hover::before {
+    width: 100%;
+  }
+  
+  nav ul li a:hover {
+    color: #007bff;
+  }
+  
+  /* Hero section styles */
+  .hero {
+    text-align: center;
+    padding: 100px 0;
+    background-color: #007bff;
+    color: #fff;
+    transition: background-color 0.5s ease;
+  }
+  
+  .hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    transition: font-size 0.5s ease, color 0.5s ease;
+  }
+  
+  .hero p {
+    font-size: 24px;
+    transition: font-size 0.5s ease;
+  }
+  
+  /* Features section styles */
+  .features {
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .feature-item {
+    text-align: center;
+    margin: 0 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  .feature-item i {
+    font-size: 48px;
+    color: #007bff;
+    margin-bottom: 20px;
+    transition: transform 0.5s ease;
+  }
+  .feature-item img {
+    max-width: 100%; /* Assurez-vous que les images ne dépassent pas la largeur du conteneur */
+    height: auto;
+  }
+  
+  .feature-item h3 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  
+  .feature-item p {
+    font-size: 20px;
+  }
+  .feature-item:hover {
+    transform: scale(1.05); /* Agrandissement au survol */
+  }
+  
+  /* Footer styles */
+  footer {
+    background-color: #2c3e50; /* Vert doux */
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    transition: background-color 0.5s ease;
+  }
+  /* CSS */
+.animated-text {
+  display: inline-block;
+}
+
+.animated-text span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(-20px); /* Commencez par déplacer les caractères vers le haut */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.animated-text span.visible {
+  opacity: 1;
+  transform: translateY(0); /* Ramenez les caractères à leur position d'origine */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
